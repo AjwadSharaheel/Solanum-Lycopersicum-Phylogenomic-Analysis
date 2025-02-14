@@ -25,24 +25,24 @@ This operation will end with a finished solanum_complete_chloroplasts.fasta file
 Step # 3
 Used the following python script to search and isolate the names of the downloaded genomes (and their species)
 
-input_file = 'your_input_file.fasta'  # Replace with your actual input file name
-output_file = 'filtered_complete_genomes.fasta'
+    input_file = 'your_input_file.fasta'  # Replace with your actual input file name
+    output_file = 'filtered_complete_genomes.fasta'
 
-with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
-    # Initialize a flag to indicate if the current line is a match
-    match_found = False
+    with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
+        # Initialize a flag to indicate if the current line is a match
+        match_found = False
     
-    # Iterate through each line in the input file
-    for line in infile:
-        # Check if the line contains both "Solanum" and "chloroplast, complete genome"
-        if 'solanum' in line.lower() and 'chloroplast, complete genome' in line.lower():
-            # Write the matching line to the output file
-            outfile.write(line)
-            match_found = True  # Set the flag to indicate a match was found
-        elif match_found:
-            match_found = False  # Reset the flag for the next match
+        # Iterate through each line in the input file
+        for line in infile:
+            # Check if the line contains both "Solanum" and "chloroplast, complete genome"
+            if 'solanum' in line.lower() and 'chloroplast, complete genome' in line.lower():
+                # Write the matching line to the output file
+                outfile.write(line)
+                match_found = True  # Set the flag to indicate a match was found
+            elif match_found:
+                match_found = False  # Reset the flag for the next match
 
-print(f"Filtered complete genomes have been written to {output_file}.")
+    print(f"Filtered complete genomes have been written to {output_file}.")
 
 
 Step # 4
